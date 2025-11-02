@@ -1,0 +1,79 @@
+/* Nurse Appointments styles */
+.nurse-appointments {
+	padding: 28px;
+	background: #f7fbff;
+	min-height: 100vh;
+	box-sizing: border-box;
+}
+
+.nurse-appointments .card {
+	max-width: 1100px;
+	margin: 0 auto;
+	background: #ffffff;
+	border-radius: 12px;
+	padding: 20px 18px;
+	box-shadow: 0 8px 30px rgba(45, 74, 120, 0.08);
+}
+
+.nurse-appointments h1 {
+	text-align: center;
+	margin: 6px 0 18px 0;
+	font-size: 2rem;
+	color: #0d3b66;
+}
+
+.nurse-appointments table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	background: transparent;
+}
+
+.nurse-appointments th,
+.nurse-appointments td {
+	padding: 12px 14px;
+	text-align: left;
+	border-bottom: 1px solid #eef4fb;
+	color: #254055;
+}
+
+.nurse-appointments thead th {
+	background: linear-gradient(180deg, #f0f7ff, #e8f2fb);
+	font-weight: 700;
+	color: #0d3b66;
+	border-bottom: 2px solid rgba(13,59,102,0.08);
+}
+
+.nurse-appointments tbody tr:nth-child(even) {
+	background: #fbfdff;
+}
+
+.nurse-appointments tbody tr:hover {
+	background: #e9f6ff;
+}
+
+.nurse-appointments td[colspan] {
+	text-align: center;
+	padding: 24px 12px;
+	color: #6b7785;
+}
+
+.nurse-appointments .controls {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+	margin-top: 14px;
+}
+
+@media (max-width: 900px) {
+	.nurse-appointments .card { padding: 14px; }
+	.nurse-appointments th, .nurse-appointments td { padding: 10px; font-size: 0.95rem; }
+}
+
+@media (max-width: 520px) {
+	.nurse-appointments table, .nurse-appointments thead, .nurse-appointments tbody, .nurse-appointments th, .nurse-appointments td, .nurse-appointments tr { display: block; }
+	.nurse-appointments thead { display: none; }
+	.nurse-appointments tr { margin-bottom: 12px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 18px rgba(13,59,102,0.04); }
+	.nurse-appointments td { display: flex; justify-content: space-between; padding: 12px 14px; }
+	.nurse-appointments td::before { content: attr(data-label); font-weight: 700; color: #233142; }
+}

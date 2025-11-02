@@ -1,0 +1,189 @@
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 18px 20px;
+  border-radius: 15px;
+  border: none;
+  background: #e6ecf3;
+  font-size: 1.1rem;
+  color: #333;
+  outline: none;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #777;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: 5px;
+  left: 18px;
+  font-size: 0.8rem;
+  color: #4a90e2;
+  background: #f0f5fa;
+  padding: 0 6px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+.input-group input::placeholder {
+  color: #111 !important;
+  font-size: 18px !important;
+  font-weight: 500;
+  opacity: 1;
+}
+input::placeholder {
+  color: #111;
+  opacity: 1;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  /* background handled inline in the React component to avoid bundler URL resolution */
+  background: none;
+  min-height: 100vh; /* allow content to grow on small devices */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  background: white;
+  padding: 32px 22px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
+}
+
+.login-container img {
+  width: clamp(120px, 25vw, 180px);
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+}
+
+.input-group i {
+  margin-right: 10px;
+  color: #666;
+}
+
+.input-group input {
+  border: 1px solid #ccc;
+  outline: none;
+  flex: 1;
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+  padding: 12px;
+  background: #fff;
+  color: #111;
+  min-height: 44px;
+  height: auto;
+}
+
+.login-btn {
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  width: 100%;
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-btn:hover {
+  background-color: #004d99;
+}
+
+.link {
+  display: block;
+  margin: 10px 0;
+  font-size: 14px;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.guest {
+  margin: 20px 0 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.guest-btn {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  width: 100%;
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  cursor: pointer;
+}
+
+.guest-btn:hover {
+  background-color: #333;
+}
+
+.error {
+  color: #d32f2f;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    width: 90%;
+    padding: 30px 20px;
+  }
+  .login-container img {
+    width: 140px;
+  }
+}
+
+/* Emergency footer styling (used by PatientLogin) */
+.emergency-footer {
+  position: fixed;
+  bottom: 28px; /* lifted slightly above the bottom */
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 3;
+  pointer-events: none; /* avoid blocking clicks */
+}
+.emergency-footer p {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 700;
+  /* Responsive font: min 0.9rem, scales with viewport, max ~2.05rem */
+  font-size: clamp(0.9rem, 2.5vw, 2.05rem);
+  letter-spacing: 0.2px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  padding: 0 12px; /* small horizontal padding so text doesn't touch edges */
+  display: inline-block;
+  max-width: 95%;
+  box-sizing: border-box;
+  white-space: normal;
+  word-break: break-word;
+}

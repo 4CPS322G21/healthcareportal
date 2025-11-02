@@ -1,0 +1,2 @@
+/* Minimal highlight CSS for PatientBooking calendar tiles */
+.react-calendar .fully-booked { background: #f8d7da !important; }

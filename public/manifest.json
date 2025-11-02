@@ -1,0 +1,21 @@
+{
+  "short_name": "Unizulu",
+  "name": "UNIZULU Healthcare Portal",
+  "icons": [
+    {
+      "src": "/unizulu.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/select.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d3b66",
+  "description": "UNIZULU Healthcare Portal - Patient booking and records"
+}

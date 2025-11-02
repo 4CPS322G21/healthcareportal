@@ -1,0 +1,4 @@
+/* Minimal CSS placeholder for NurseRegister */
+.nurse-register-container { max-width: 520px; margin: 40px auto; padding: 18px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+.nurse-register-form input, .nurse-register-form select { width: 100%; padding: 10px; margin-bottom: 10px; }
+.nurse-register-form button { padding: 10px 16px; background: #1976d2; color: white; border: none; border-radius: 6px; }

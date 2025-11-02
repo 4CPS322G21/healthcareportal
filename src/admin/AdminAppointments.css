@@ -1,0 +1,28 @@
+.appointments-list { display:block }
+
+/* Highlight calendar tiles that have bookings */
+.react-calendar .has-bookings {
+	position: relative;
+	background: rgba(25, 118, 210, 0.06);
+	border-radius: 6px;
+}
+
+.react-calendar .booking-dot {
+	width: 7px;
+	height: 7px;
+	background: #1976d2;
+	border-radius: 50%;
+	position: absolute;
+	bottom: 6px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+/* Tweak today/active styles to remain visible */
+.react-calendar__tile--today {
+	border: 1px solid #1976d2;
+}
+.react-calendar__tile--active {
+	background: #1976d2;
+	color: white;
+}

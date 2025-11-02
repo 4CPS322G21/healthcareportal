@@ -1,0 +1,18 @@
+/* Minimal styles for nurse clinic visits view */
+.nurse-visits-container {
+  padding: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.back-button {
+  margin-bottom: 12px;
+}

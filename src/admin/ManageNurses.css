@@ -1,0 +1,106 @@
+.manage-nurses-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 25px;
+  font-family: Arial, sans-serif;
+  z-index: 9999; /* Ensure it is above other elements */
+}
+.manage-nurses-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.nurse-section {
+  margin-bottom: 30px;
+}
+.nurse-section h3 {
+  margin-bottom: 10px;
+}
+.nurse-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.nurse-item span {
+  flex: 1;
+}
+.approve-btn, .reject-btn, .delete-btn {
+  margin-left: 10px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95em;
+  cursor: pointer;
+}
+.approve-btn {
+  background: #28a745;
+  color: #fff;
+}
+.reject-btn {
+  background: #dc3545;
+  color: #fff;
+}
+.delete-btn {
+  background: #007BFF;
+  color: #fff;
+}
+.approve-btn:hover {
+  background: #218838;
+}
+.reject-btn:hover {
+  background: #c82333;
+}
+.delete-btn:hover {
+  background: #0056b3;
+}
+.success-message {
+  color: #28a745;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.error-message {
+  color: #dc3545;
+  text-align: center;
+  margin-bottom: 15px;
+}
+/* Add to ManageNurses.css or your global CSS */
+.nurse-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  background: #fff;
+}
+.nurse-table th, .nurse-table td {
+  border: 1px solid #1976d2;
+  padding: 10px 12px;
+  text-align: left;
+}
+.nurse-table th {
+  background: #1976d2;
+  color: #fff;
+}
+.nurse-table tr:nth-child(even) {
+  background: #f4f8fb;
+}
+.nurse-table tr:hover {
+  background: #e3f2fd;
+}
+
+@media (max-width: 700px) {
+  .manage-nurses-container { padding: 12px; }
+  .nurse-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .nurse-table th, .nurse-table td { padding: 8px; font-size: 0.95rem; }
+}
+
+@media (max-width: 420px) {
+  .nurse-table th, .nurse-table td { font-size: 0.9rem; }
+}

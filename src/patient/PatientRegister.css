@@ -1,0 +1,43 @@
+/* Patient Register page background */
+.patient-register-bg {
+  /* Make the page container cover the viewport and be scrollable so the
+     background is white corner-to-corner on all devices */
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  width: 100vw;
+  height: 100vh;
+  background: #ffffff !important; /* full-bleed white */
+  box-sizing: border-box;
+  overflow-y: auto; /* allow page content to scroll */
+  overflow-x: hidden; /* avoid horizontal scroll from child elements */
+  -webkit-overflow-scrolling: touch;
+  padding-top: 80px; /* leave space for a fixed header/back-button if present */
+  z-index: 0;
+}
+
+.register-container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Page heading for Patient Register */
+.patient-register-bg .register-title {
+  color: #1976d2;
+  font-weight: 700;
+}
+
+/* Site header title on the register page should also use the UNIZULU blue */
+.patient-register-bg .header-title {
+  color: #1976d2;
+  font-weight: 700;
+}
+
+/* Ensure header logo and back button remain visible above the white background */
+.patient-register-bg .patient-header,
+.patient-register-bg .back-arrow,
+.patient-register-bg button[aria-label="Back to login"] {
+  z-index: 1100;
+}
+

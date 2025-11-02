@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap');
+
+.admin-home-bg {
+  min-height: 100vh;
+  width: 100vw;
+  font-family: 'Roboto', sans-serif;
+  background: none;
+  position: relative;
+  z-index: 1;
+}
+.admin-home-bg::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://housing.com/news/wp-content/uploads/2022/11/Small-doctors-clinic-design-ideas-compressed.jpg') no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(4px) brightness(1.1);
+  z-index: -2;
+}
+
+@media (max-width: 700px) {
+  .admin-home-header { flex-direction: column; gap: 8px; }
+  .admin-home-main { padding: 12px; }
+}
+
+@media (max-width: 420px) {
+  .admin-home-header { text-align: center; }
+}
+
+/* Reduce nav header size slightly to avoid overlapping the sidebar */
+.admin-nav .nav-header {
+  font-family: 'Poppins', 'Roboto', sans-serif;
+  font-size: 2.45rem; /* slightly smaller */
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* keep it on one line and avoid overlap */
+  margin-right: 12px;
+}
+
+@media (max-width: 900px) {
+  .admin-nav .nav-header { font-size: 1rem; }
+}

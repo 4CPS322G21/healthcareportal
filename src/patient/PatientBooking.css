@@ -1,0 +1,379 @@
+.react-calendar__navigation {
+  background: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0d3b66;
+  margin-bottom: 8px;
+}
+.react-calendar__navigation button {
+  background: none;
+  border: none;
+  color: #0d3b66;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  font-weight: 500;
+  color: #3792b6;
+  background: none;
+}
+.react-calendar__tile {
+  font-size: 1.25rem;
+  color: #0d3b66;
+  font-weight: 600;
+  background: none;
+}
+.booking-bg {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  /* background moved to a full-bleed pseudo element so it spans the viewport */
+  background: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative; /* allow natural scrolling on mobile and pseudo-element positioning */
+  margin: 0;
+  padding: 24px 0 48px; /* bottom padding so content doesn't touch mobile bottom UI */
+  z-index: 0;
+}
+
+/* Full-bleed background layer behind booking content */
+.booking-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  background-attachment: fixed;
+}
+
+.booking-header {
+  font-size: clamp(1.25rem, 2.6vw, 2.2rem);
+  font-weight: bold;
+  color: #0d3b66;
+  margin-top: 24px;
+  margin-bottom: 16px;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
+/* Back button placed above the page and pinned to the viewport so app header won't overlap it */
+.booking-back-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100; /* above typical app headers */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booking-content {
+  display: flex;
+  gap: 24px;
+  width: 94%;
+  max-width: 1100px;
+  margin: 8px auto 0;
+  background: rgba(255,255,255,0.95);
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(33,147,176,0.12);
+  padding: 20px;
+  align-items: flex-start;
+}
+
+.calendar-section {
+  /* allow the calendar column to shrink on small screens while keeping a sensible maximum */
+  flex: 1 1 clamp(260px, 48%, 420px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-width: 0;
+}
+.react-calendar {
+  width: 100% !important;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(33,147,176,0.10);
+  margin-bottom: 12px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.calendar-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #0d3b66;
+  display: block;
+  text-align: center;
+}
+
+.calendar-input {
+  font-size: 1.1rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #b0c4de;
+  margin-bottom: 16px;
+}
+
+.calendar-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.legend {
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.legend.available {
+  background: #b2f7b8;
+  color: #0d3b66;
+}
+
+.legend.booked {
+  background: #f7b2b2;
+  color: #0d3b66;
+}
+
+.timeslot-section {
+  flex: 1 1 clamp(260px, 48%, 420px);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.timeslot-list {
+  width: 100%;
+  max-height: 60vh; /* reasonable scrolling area on mobile */
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Make the timeslot list scrollable so patients can move up/down */
+.timeslot-section {
+  width: 100%;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 8px; /* space for scrollbar */
+}
+
+.timeslot-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #0d3b66;
+}
+
+.timeslot-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0eafc;
+  font-size: 1rem;
+}
+
+.timeslot-row.available {
+  background: #eafcf7;
+}
+
+.timeslot-row.booked {
+  background: #ffdddd;
+  color: #b22222;
+  font-weight: bold;
+  border: 2px solid #d32f2f;
+}
+
+/* Ensure booked slots are non-interactive */
+.timeslot-row.booked {
+  pointer-events: none;
+  opacity: 0.85;
+}
+.timeslot-row.booked input {
+  cursor: not-allowed;
+}
+
+/* Past slots: already passed (for today or earlier) */
+.timeslot-row.past {
+  background: #f4f4f4;
+  color: #888;
+  pointer-events: none; /* make it non-interactive */
+  opacity: 0.7;
+}
+
+/* Badge showing the remaining capacity */
+.slot-available {
+  color: #2e7d32; /* dim green */
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.slot-full {
+  color: #d32f2f; /* red */
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.timeslot-row .timeslot-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeslot-row .timeslot-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Layout columns via semantic classnames to keep placement stable */
+.timeslot-radio {
+  flex: 0 0 clamp(36px, 6vw, 48px); /* radio column scales */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 4px;
+}
+.timeslot-time {
+  flex: 1 1 auto; /* main flexible column for time */
+  min-width: 0;
+  padding-left: 8px;
+}
+.timeslot-status {
+  flex: 0 0 clamp(90px, 18%, 200px); /* status column scales with viewport */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 12px;
+}
+
+/* Ensure status text does not wrap */
+.slot-available, .slot-full {
+  white-space: nowrap;
+}
+
+.timeslot-row.past input {
+  cursor: not-allowed;
+}
+
+.confirm-btn {
+  margin-top: 16px;
+  padding: 12px 28px;
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  font-weight: bold;
+  color: #fff;
+  background: #0d3b66;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(33,147,176,0.15);
+  transition: background 0.2s;
+}
+
+.confirm-btn:hover {
+  background: #3792b6;
+}
+
+.confirmation-message {
+  margin-top: 16px;
+  font-size: 1.1rem;
+  color: #0d3b66;
+  font-weight: 600;
+}
+
+.friendly-message {
+  background: none; /* remove colored background */
+  color: #0d3b66; /* requested text color */
+  padding: 12px 0; /* keep spacing but lighter */
+  border-radius: 0;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* Make sure the paragraph inside the friendly message is visible */
+.friendly-message p {
+  color: #0d3b66;
+  margin: 0 0 8px 0;
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  /* Ensure booking content sits below the fixed header on small screens */
+  /* add top padding to the page container so the header/back button area remains visible
+     and we do not rely on internal content margin which can get clipped */
+  .booking-bg {
+    padding-top: 96px; /* leave room for the fixed app header area on small screens */
+  }
+
+  .booking-content { 
+    flex-direction: column; 
+    padding: 12px; 
+    height: auto;
+    margin-top: 0; /* content already pushed below header by padding on .booking-bg */
+    width: 94%;
+  }
+  .calendar-section { max-width: 100%; }
+  .timeslot-time { font-size: 0.95rem; }
+  .timeslot-radio { flex: 0 0 36px; }
+  .timeslot-status { flex: 0 0 120px; padding-left: 8px; }
+  .timeslot-row { font-size: 0.95rem; }
+  .confirm-btn { width: 100%; padding: 12px; }
+}
+
+@media (max-width: 420px) {
+  .timeslot-status { flex: 0 0 90px; font-size: 0.9rem; }
+  .timeslot-time { font-size: 0.9rem; }
+
+  /* Mobile-specific calendar sizing so header fits cleanly */
+  .react-calendar__navigation {
+    font-size: 0.85rem;
+  }
+  .react-calendar__navigation button {
+    padding: 4px 6px;
+    font-size: 0.85rem;
+  }
+  .react-calendar__tile {
+    font-size: 0.85rem;
+    padding: 4px 2px;
+  }
+  .react-calendar {
+    max-width: 300px !important; /* keep calendar narrower on very small screens */
+  }
+  .calendar-label { font-size: 0.95rem; }
+}
+
+/* Extra safety for very small phones: make booking content narrower and lower */
+@media (max-width: 360px) {
+  .booking-content {
+    margin-top: 84px;
+    padding: 10px;
+    width: 96%;
+  }
+  .react-calendar {
+    max-width: 280px !important;
+  }
+}
+
+/* Extra tightening for very narrow devices */
+@media (max-width: 340px) {
+  .react-calendar__navigation { font-size: 0.8rem; }
+  .react-calendar__navigation button { font-size: 0.8rem; padding: 3px 5px; }
+  .react-calendar__month-view__weekdays { font-size: 0.75rem; }
+  .react-calendar__tile { font-size: 0.78rem; padding: 3px 2px; }
+  .calendar-label { font-size: 0.85rem; }
+}

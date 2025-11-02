@@ -1,0 +1,213 @@
+/* Drawer styles */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: calc(-1 * min(260px, 80%));
+  width: min(260px, 80%);
+  height: 100vh;
+  background: rgba(13, 59, 102, 0.95);
+  color: #fff;
+  z-index: 100;
+  transition: left 0.28s ease, transform 0.28s ease;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+}
+.drawer.open {
+  left: 0;
+}
+.drawer-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 0 16px 0;
+}
+.drawer-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  color: #fff;
+}
+.drawer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+}
+.drawer-item {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  text-align: left;
+  padding: 12px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.drawer-item:hover {
+  background: #3792b6;
+}
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+  z-index: 99;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap');
+
+.patient-home-bg {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1;
+  background: none;
+}
+
+.patient-home-bg::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.unizulu.ac.za/wp-content/uploads/2021/10/DSC_6316.jpg') no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(4px) brightness(0.6);
+  z-index: -2;
+}
+
+.patient-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(13, 59, 102, 0.95);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 3.2vw, 2.2rem);
+  color: #f0f5fa;
+  padding: 18px 16px 14px 16px;
+  letter-spacing: 1.5px;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.25);
+  -webkit-user-select: none;
+  user-select: none;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  animation: fadeSlideUp 0.8s ease-out forwards;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+  flex-direction: column;
+}
+
+/* Drawer toggle (hamburger) - responsive sizing */
+.drawer-toggle {
+  position: absolute;
+  top: 20px;
+  left: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 11;
+}
+.drawer-toggle span {
+  font-size: clamp(1.2rem, 5vw, 2rem);
+  color: #fff;
+  line-height: 1;
+}
+
+@media (max-width: 420px) {
+  .drawer-toggle {
+    top: 12px;
+    left: 10px;
+    padding: 6px;
+  }
+  .drawer-toggle span { font-size: 1.05rem; }
+}
+
+.header-title {
+  text-align: center;
+  flex-grow: 1;
+  font-size: clamp(1rem, 2.6vw, 2rem);
+}
+
+.header-logo {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: clamp(40px, 8vw, 80px);
+  width: auto;
+}
+
+.header-user {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #ffeb3b;
+  font-weight: bold;
+}
+
+.home-container {
+  /* place below the fixed header; allow normal flow so it scrolls on small screens */
+  margin-top: calc( (var(--header-height, 120px)) );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 12px;
+}
+
+.home-btn {
+  width: 100%;
+  max-width: 420px;
+  padding: 16px 18px;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: 700;
+  color: #0d3b66;
+  background: #e7e9ea;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(80, 227, 194, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.home-btn:hover {
+  background: #4a90e2;
+  color: #fff;
+  transform: translateY(-2px) scale(1.05);
+}
+
+@media (max-width: 700px) {
+  .drawer { width: 220px; left: -220px; }
+  .patient-home-bg::before { background-attachment: scroll; }
+  .patient-header { padding: 12px 12px; }
+  .home-container { margin-top: 90px; }
+}
+
+@keyframes fadeSlideUp {
+  0% {opacity: 0; transform: translateY(40px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
